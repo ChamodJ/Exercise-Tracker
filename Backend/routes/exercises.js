@@ -45,10 +45,11 @@ router.route('/update/:id').post((req, res) => {
                 exercise.description = req.body.description;
                 exercise.duration = Number(req.body.duration);
                 exercise.date = Date(req.body.date);
+            
+            exercise.save()
+                    .then(() => res.json("Exercise Updated!"))
+                    .catch(err => res.status(400).json("Error: "  + err))
             })
-
-    exercise.save()
-            .then(() => res.json("Exercise Updated!"))
             .catch(err => res.status(400).json("Error: "  + err))
 });
 
