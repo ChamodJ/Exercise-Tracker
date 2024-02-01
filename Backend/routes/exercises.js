@@ -38,4 +38,18 @@ router.route('/:id').delete((req, res) => {
             .catch(err => res.status(400).json("Error: " + err))
 });
 
+router.route('./update/:id').post((req, res) => {
+    exercise.findByIdAndUpdate(req.params.id)
+            .then(exercise => {
+                exercise.username = req.body.username;
+                exercise.description = req.body.description;
+                exercise.duration = Number(req.body.duration);
+                exercise.date = Date(req.body.date);
+            })
+
+    exercise.save()
+            .then(() => res.json("Exercise Updated!"))
+            .catch(err => res.status(400).json("Error: "  + err))
+});
+
 module.exports = router
