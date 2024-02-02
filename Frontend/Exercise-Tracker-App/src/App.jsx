@@ -1,18 +1,19 @@
-import React from 'react'
-import {BrowserRouter as Router, Route} from "react-router-dom"
+import {BrowserRouter as Router, Route, Routes} from "react-router-dom"
 
-import {Navbar, ExercisesList, EditExercises, CreateExercises, CreateUser} from './components'
+import { Navbar, ExercisesList, EditExercises, CreateExercises, CreateUser } from './Components/components'
 
 const App = () => {
   return (
     <Router>
       <Navbar />
       <br />
-      <Route path='/' exact Component={ExercisesList} />
-      <Route path='/edit/:id' exact Component={EditExercises} />
-      <Route path='/create' exact Component={CreateExercises} />
-      <Route path='/user' exact Component={CreateUser} />
-    </Router>    
+      <Routes>
+        <Route path='/'  element={<ExercisesList />} />
+        <Route path='/edit/:id'  element={<EditExercises />} />
+        <Route path='/create'  element={<CreateExercises />} />
+        <Route path='/user'  element={<CreateUser />} />
+      </Routes>
+    </Router>
   );
 }
 
