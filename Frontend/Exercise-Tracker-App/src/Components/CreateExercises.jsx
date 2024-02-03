@@ -6,7 +6,7 @@ const CreateExercises = () => {
     description: "",
     duration: 0,
     date: new Date(),
-    user: ["User1", "User2", "User3"] // Sample user data, replace it with your actual data
+    user: ["User1", "User2", "User3"] // Sample user data
   });
 
   const userInputRef = useRef(null);
@@ -50,7 +50,8 @@ const CreateExercises = () => {
     };
 
     console.log(exercise);
-    // Add logic to handle form submission, e.g., send data to backend
+
+    window.location = '/'
   };
 
   return (
