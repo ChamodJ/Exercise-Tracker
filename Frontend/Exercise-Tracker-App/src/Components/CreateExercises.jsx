@@ -51,7 +51,7 @@ const CreateExercises = () => {
 
     console.log(exercise);
 
-
+    window.location='/'
   };
 
   return (
