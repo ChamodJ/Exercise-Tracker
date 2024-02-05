@@ -33,9 +33,6 @@ const CreateUser = () => {
     window.alert("Error adding user. Please check the console for details.");
   });
 
-
-    window.alert("User Added!")
-
     setState({
       ...state,
       username : ''
