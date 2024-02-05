@@ -1,4 +1,4 @@
-import { useState, useRef } from "react";
+import { useState } from "react";
 import axios from "axios"
 
 const CreateExercises = () => {
@@ -11,7 +11,7 @@ const CreateExercises = () => {
     user: ["User1", "User2", "User3"] // Sample user data
   });
 
-  const userInputRef = useRef(null);
+
 
   const onChangeUsername = (e) => {
     setState({
@@ -82,7 +82,7 @@ const CreateExercises = () => {
         <div className="flex flex-col mb-[10px]">
           <label className="mb-[5px] font-semibold">Username: </label>
           <select
-            ref={userInputRef}
+            
             required
             className="border-2"
             value={state.username}
