@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import axios from "axios"
 
 const CreateExercises = () => {
@@ -8,10 +8,25 @@ const CreateExercises = () => {
     description: "",
     duration: 0,
     date: new Date(),
-    user: ["User1", "User2", "User3"] // Sample user data
+    users: [] 
   });
 
+  useEffect(() => {
+    const fetchUsers = async () => {
+      try {
+        const response = await axios.get('http://localhost:5000/users');
+        setState({
+          ...state,
+          users: response.data.map(user => user.username),
+          username: response.data.length > 0 ? response.data[0].username: ""
+        })
+      } catch (error) {
+        console.error('Error Fetching usernames: ' + error)
+      }
+    }
 
+    fetchUsers();
+  }, [])
 
   const onChangeUsername = (e) => {
     setState({
@@ -41,7 +56,7 @@ const CreateExercises = () => {
     });
   };
 
-  const onTheSubmit = (e) => {
+  const onSubmit = (e) => {
     e.preventDefault();
 
     const exercise = {
@@ -70,7 +85,7 @@ const CreateExercises = () => {
       description: "",
       duration: 0,
       date: new Date(),
-      user: ["User1", "User2", "User3"] 
+      user: [] 
     })
 
   };
@@ -78,7 +93,7 @@ const CreateExercises = () => {
   return (
     <div>
       <h3 className="text-xl font-bold mb-[15px]">Create New Exercise Log</h3>
-      <form onSubmit={onTheSubmit}>
+      <form onSubmit={onSubmit}>
         <div className="flex flex-col mb-[10px]">
           <label className="mb-[5px] font-semibold">Username: </label>
           <select
@@ -88,7 +103,7 @@ const CreateExercises = () => {
             value={state.username}
             onChange={onChangeUsername}
           >
-            {state.user.map(function (user) {
+            {state.users.map(function (user) {
               return <option key={user} value={user}>{user}</option>;
             })}
           </select>
