@@ -56,15 +56,13 @@ const CreateExercises = () => {
     axios.post('http://localhost:5000/exercises/add', exercise)
           .then(res => {
             console.log(res.data)
-            window.alert("Exercise Added!")
+            window.alert("Exercise submitted successfully!")
           })
 
           .catch(error => {
             console.error("Error adding exercise:", error)
             window.alert("Error adding exercise. Please check the console for details.")
           });
-
-    window.alert("Exercise submitted successfully!")
 
     setState({
       ...state,
