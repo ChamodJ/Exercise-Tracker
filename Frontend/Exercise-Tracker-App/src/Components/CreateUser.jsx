@@ -22,6 +22,8 @@ const CreateUser = () => {
 
     console.log(user)
 
+    window.alert("User Added!")
+
     setState({
       ...state,
       username : ''
@@ -34,6 +36,7 @@ const CreateUser = () => {
         <div className="flex flex-col mb-[10px]">
           <label className="mb-[5px] font-semibold">Description: </label>
           <input
+            required
             type="text"
             value={state.username}
             className="border-2"
