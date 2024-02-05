@@ -1,4 +1,5 @@
 import { useState } from "react"
+import axios from "axios"
 
 const CreateUser = () => {
 
@@ -21,6 +22,17 @@ const CreateUser = () => {
     }
 
     console.log(user)
+
+    axios.post('http://localhost:5000/users/add', user)
+  .then(res => {
+    console.log(res.data);
+    window.alert("User Added!");
+  })
+  .catch(error => {
+    console.error("Error adding user:", error);
+    window.alert("Error adding user. Please check the console for details.");
+  });
+
 
     window.alert("User Added!")
 
