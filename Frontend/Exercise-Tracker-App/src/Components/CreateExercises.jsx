@@ -88,6 +88,7 @@ const CreateExercises = () => {
           <label className="mb-[5px] font-semibold">Description: </label>
           <input
             type="text"
+            required
             value={state.description}
             className="border-2"
             onChange={onChangeDescription}
@@ -98,6 +99,7 @@ const CreateExercises = () => {
           <label className="mb-[5px] font-semibold">Duration (in minutes): </label>
           <input
             type="number"
+            required
             value={state.duration}
             className="border-2"
             onChange={onChangeDuration}
@@ -108,6 +110,7 @@ const CreateExercises = () => {
           <label className="mb-[5px] font-semibold">Date: </label>
           <input
             type="date"
+            required
             className="border-2"
             onChange={(e) => onChangeDate(new Date(e.target.value))}
           />
