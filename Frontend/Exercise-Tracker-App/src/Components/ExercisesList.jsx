@@ -50,8 +50,8 @@ const ExercisesList = () => {
             state.map((exercise) => {
 
             return(
-              <tr className="border-b dark:border-neutral-600">
-                <th key={exercise._id} scope="row" className="px-6 py-4">
+              <tr key={exercise._id} className="border-b dark:border-neutral-600">
+                <th scope="row" className="px-6 py-4">
                   {exercise._id}
                 </th>
                 <td className="px-6 py-4">{exercise.username}</td>
