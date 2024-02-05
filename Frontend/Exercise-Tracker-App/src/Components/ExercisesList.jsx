@@ -47,7 +47,9 @@ const ExercisesList = () => {
               <th scope="row" className="px-6 py-4"> No Exercise Found</th>
             </tr>
           ) : (
-            state.map((exercise) => (
+            state.map((exercise) => {
+
+            return(
               <tr className="border-b dark:border-neutral-600">
                 <th key={exercise._id} scope="row" className="px-6 py-4">
                   {exercise._id}
@@ -58,19 +60,20 @@ const ExercisesList = () => {
                 <td className="px-6 py-4">{new Date(exercise.date).toLocaleDateString()}</td>
                 <td className="px-6 py-4">
                 <button
-                  class="bg-blue-600 text-white px-4 py-2 rounded-full transition duration-200 ease-in-out hover:bg-blue-700 active:bg-blue-800 focus:outline-none"
+                  className="bg-blue-600 text-white px-4 py-2 rounded-full transition duration-200 ease-in-out hover:bg-blue-700 active:bg-blue-800 focus:outline-none"
                 >
                   Update
                 </button>
                 <button
-                  class="bg-red-500 text-white px-4 py-2 rounded-full transition duration-200 ease-in-out hover:bg-red-600 active:bg-red-700 focus:outline-none ml-[5px]"
+                  className="bg-red-500 text-white px-4 py-2 rounded-full transition duration-200 ease-in-out hover:bg-red-600 active:bg-red-700 focus:outline-none ml-[5px]"
                 >
                   Delete
                 </button>
 
                 </td>
               </tr>
-            ))      
+            )
+            })      
           )}
         </tbody>
 
