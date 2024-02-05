@@ -29,7 +29,7 @@ const ExercisesList = () => {
     <div>
       <table className="min-w-full text-left text-sm whitespace-nowrap">
 
-        <thead className="uppercase tracking-wider border-b-2 dark:border-neutral-600">
+        <thead className="uppercase tracking-wider border-b-2 dark:border-neutral-600 text-center">
           <tr>
             <th scope="col" className="px-6 py-4"> Exercise ID </th>
             <th scope="col" className="px-6 py-4"> Username </th>
@@ -40,7 +40,7 @@ const ExercisesList = () => {
           </tr>
         </thead>
 
-        <tbody>
+        <tbody className="text-center">
 
           {state.length === 0 ? (
             <tr className="border-b dark:border-neutral-600">
@@ -56,7 +56,19 @@ const ExercisesList = () => {
                 <td className="px-6 py-4">{exercise.description}</td>
                 <td className="px-6 py-4">{exercise.duration}</td>
                 <td className="px-6 py-4">{new Date(exercise.date).toLocaleDateString()}</td>
-                <td className="px-6 py-4">In Stock</td>
+                <td className="px-6 py-4">
+                <button
+                  class="bg-blue-600 text-white px-4 py-2 rounded-full transition duration-200 ease-in-out hover:bg-blue-700 active:bg-blue-800 focus:outline-none"
+                >
+                  Update
+                </button>
+                <button
+                  class="bg-red-500 text-white px-4 py-2 rounded-full transition duration-200 ease-in-out hover:bg-red-600 active:bg-red-700 focus:outline-none ml-[5px]"
+                >
+                  Delete
+                </button>
+
+                </td>
               </tr>
             ))      
           )}
