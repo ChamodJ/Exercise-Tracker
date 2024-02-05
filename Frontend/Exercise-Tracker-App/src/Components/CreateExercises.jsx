@@ -1,6 +1,7 @@
 import { useState, useRef } from "react";
 
 const CreateExercises = () => {
+
   const [state, setState] = useState({
     username: "",
     description: "",
@@ -51,7 +52,17 @@ const CreateExercises = () => {
 
     console.log(exercise);
 
-    window.location='/'
+    window.alert("Exercise submitted successfully!")
+
+    setState({
+      ...state,
+      username: "",
+      description: "",
+      duration: 0,
+      date: new Date(),
+      user: ["User1", "User2", "User3"] 
+    })
+
   };
 
   return (
