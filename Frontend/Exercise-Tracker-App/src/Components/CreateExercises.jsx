@@ -39,7 +39,7 @@ const CreateExercises = () => {
     });
   };
 
-  const onSubmit = (e) => {
+  const onTheSubmit = (e) => {
     e.preventDefault();
 
     const exercise = {
@@ -51,19 +51,19 @@ const CreateExercises = () => {
 
     console.log(exercise);
 
-    window.location = '/'
+
   };
 
   return (
     <div>
-      <h3>Create New Exercise Log</h3>
-      <form onSubmit={onSubmit}>
-        <div>
-          <label>Username: </label>
+      <h3 className="text-xl font-bold mb-[15px]">Create New Exercise Log</h3>
+      <form onSubmit={onTheSubmit}>
+        <div className="flex flex-col mb-[10px]">
+          <label className="mb-[5px] font-semibold">Username: </label>
           <select
             ref={userInputRef}
             required
-            className=""
+            className="border-2"
             value={state.username}
             onChange={onChangeUsername}
           >
@@ -73,34 +73,36 @@ const CreateExercises = () => {
           </select>
         </div>
 
-        <div>
-          <label>Description: </label>
+        <div className="flex flex-col mb-[10px]">
+          <label className="mb-[5px] font-semibold">Description: </label>
           <input
             type="text"
             value={state.description}
+            className="border-2"
             onChange={onChangeDescription}
           />
         </div>
 
-        <div>
-          <label>Duration (in minutes): </label>
+        <div className="flex flex-col mb-[10px]">
+          <label className="mb-[5px] font-semibold">Duration (in minutes): </label>
           <input
             type="number"
             value={state.duration}
+            className="border-2"
             onChange={onChangeDuration}
           />
         </div>
 
-        <div>
-          <label>Date: </label>
+        <div className="flex flex-col mb-[20px]">
+          <label className="mb-[5px] font-semibold">Date: </label>
           <input
             type="date"
-            value={state.date}
+            className="border-2"
             onChange={(e) => onChangeDate(new Date(e.target.value))}
           />
         </div>
 
-        <button type="submit">Submit</button>
+        <button type="submit" className="bg-blue-600 text-white px-[10px] py-[5px] rounded">Create Exercise Log</button>
       </form>
     </div>
   );
