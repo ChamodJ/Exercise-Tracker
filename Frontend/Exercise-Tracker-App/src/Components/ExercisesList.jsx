@@ -24,6 +24,16 @@ const ExercisesList = () => {
     fetchExercises()
   }, [])
 
+  const deleteExercise = async (id) => {
+    try {
+      await axios.delete(`http://localhost:5000/exercises/${id}`)
+      setState(state.filter(exercise => exercise._id !== id));
+      console.log('Exercise deleted successfully')
+    } catch (error) {
+      console.error('Error deleting exercise: ' + error)
+    }
+  }
+
 
   return (
     <div>
@@ -65,7 +75,7 @@ const ExercisesList = () => {
                   Update
                 </button>
                 <button
-                  className="bg-red-500 text-white px-4 py-2 rounded-full transition duration-200 ease-in-out hover:bg-red-600 active:bg-red-700 focus:outline-none ml-[5px]"
+                  className="bg-red-500 text-white px-4 py-2 rounded-full transition duration-200 ease-in-out hover:bg-red-600 active:bg-red-700 focus:outline-none ml-[5px]" onClick={() => deleteExercise(exercise._id)}
                 >
                   Delete
                 </button>
