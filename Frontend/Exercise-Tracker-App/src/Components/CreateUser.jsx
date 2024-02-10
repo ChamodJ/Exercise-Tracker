@@ -54,7 +54,7 @@ const CreateUser = () => {
             onChange={onChangeUsername}
           />
         </div>
-        <button type="submit" className="bg-blue-600 text-white px-[10px] py-[5px] rounded">Create Exercise Log</button>
+        <button type="submit" className="bg-blue-600 text-white px-[10px] py-[5px] rounded">Create User</button>
       </form>
     </div>
   )
