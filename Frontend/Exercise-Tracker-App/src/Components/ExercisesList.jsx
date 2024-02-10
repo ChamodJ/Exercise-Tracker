@@ -38,6 +38,8 @@ const ExercisesList = () => {
 
   return (
     <div>
+      <h3 className="text-xl font-bold mb-[15px]">Exercise Log</h3>
+
       <table className="min-w-full text-left text-sm whitespace-nowrap">
 
         <thead className="uppercase tracking-wider border-b-2 dark:border-neutral-600 text-center">

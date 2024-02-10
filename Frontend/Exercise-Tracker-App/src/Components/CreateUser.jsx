@@ -41,9 +41,11 @@ const CreateUser = () => {
 
   return (
     <div>
+      <h3 className="text-xl font-bold mb-[15px]">New User</h3>
+
     <form onSubmit={onSubmit}>
         <div className="flex flex-col mb-[10px]">
-          <label className="mb-[5px] font-semibold">Description: </label>
+          <label className="mb-[5px] font-semibold">Username: </label>
           <input
             required
             type="text"

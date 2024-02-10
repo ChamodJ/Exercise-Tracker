@@ -113,7 +113,7 @@ const EditExercises = () => {
 
   return (
     <div>
-      <h3 className="text-xl font-bold mb-[15px]">Create New Exercise Log</h3>
+      <h3 className="text-xl font-bold mb-[15px]">Update New Exercise Log</h3>
       <form onSubmit={onSubmit}>
         <div className="flex flex-col mb-[10px]">
           <label className="mb-[5px] font-semibold">Username: </label>
@@ -162,7 +162,7 @@ const EditExercises = () => {
           />
         </div>
 
-        <button type="submit" className="bg-blue-600 text-white px-[10px] py-[5px] rounded">Create Exercise Log</button>
+        <button type="submit" className="bg-blue-600 text-white px-[10px] py-[5px] rounded">Update Exercise Log</button>
       </form>
     </div>
   );
