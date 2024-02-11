@@ -1,26 +1,30 @@
 import { useState, useEffect } from "react";
 import axios from "axios"
-import { useParams } from "react-router-dom";
+import { useNavigate, useParams } from "react-router-dom";
 
 const EditExercises = () => {
 
   const { id } = useParams();
+  const navigate = useNavigate()
 
   const [state, setState] = useState({
     username: "",
     description: "",
     duration: 0,
     date: new Date(),
-    users: [] 
   });
+
+  const [users, SetUsers] = useState({
+    users: [] 
+  })
 
   useEffect(() => {
     const fetchUsers = async () => {
       try {
         
         const response = await axios.get('http://localhost:5000/users');
-        setState({
-          ...state,
+        SetUsers({
+          ...users,
           users: response.data.map(user => user.username),
           username: response.data.length > 0 ? response.data[0].username: ""
         })
@@ -37,8 +41,12 @@ const EditExercises = () => {
         const exercise = await axios.get(`http://localhost:5000/exercises/${id}`)
         setState((prevState) => ({
           ...prevState,
+
           ...exercise.data,
+          date : exercise.data.date.substring(0 , 10)
+          
         }))
+        console.log(exercise.data)
       } catch (error) {
         console.error('Error Fetching Exercise: ' + error)
       }
@@ -89,10 +97,11 @@ const EditExercises = () => {
 
     console.log(exercise);
 
-    axios.post('http://localhost:5000/exercises/add', exercise)
+    axios.post(`http://localhost:5000/exercises/update/${id}`, exercise)
           .then(res => {
             console.log(res.data)
-            window.alert("Exercise submitted successfully!")
+            window.alert("Exercise Updated successfully!")
+            navigate("/")
           })
 
           .catch(error => {
@@ -124,7 +133,7 @@ const EditExercises = () => {
             value={state.username}
             onChange={onChangeUsername}
           >
-            {state.users.map(function (user) {
+            {users.users.map(function (user) {
               return <option key={user} value={user}>{user}</option>;
             })}
           </select>
@@ -158,6 +167,7 @@ const EditExercises = () => {
             type="date"
             required
             className="border-2"
+            value={state.date}
             onChange={(e) => onChangeDate(new Date(e.target.value))}
           />
         </div>
